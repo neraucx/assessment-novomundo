@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/((?!robots.txt|logo-nerau.png|favicon.svg|icons.svg|assets/.*).*)", "destination": "/index.html" }
+    { "source": "/((?!robots.txt|logo-nerau.png|favicon.svg|icons.svg|apple-touch-icon.*|assets/.*).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
