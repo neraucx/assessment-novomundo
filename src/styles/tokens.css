@@ -1,0 +1,55 @@
+/* ======================================================================
+   Novo Mundo Tracker — tokens (Nerau DS)
+   Copiado do :root do NovoMundo_Tracker_v3.html
+   ====================================================================== */
+
+:root {
+  /* Reds */
+  --red-500: #EA0000;
+  --red-900: #820000;
+  --red-100: #F0ABAD;
+
+  /* Inks */
+  --ink-0: #000;
+  --ink-1: #171717;
+  --ink-3: #333;
+
+  /* Slate (body) */
+  --slate-1: #3C3F42;
+  --slate-2: #6D7175;
+  --slate-3: #9EA3A8;
+  --slate-4: #C4C4C4;
+
+  /* Paper */
+  --paper-0: #FFF;
+  --paper-1: #FCFCFD;
+  --paper-2: #F0F2F4;
+  --paper-3: #EBEBEB;
+
+  /* Role badges */
+  --mage: #3A506B;
+  --inc: #EA0000;
+  --both: #2E5339;
+  --nerau: #D4A548;
+  --client: #C8553D;
+
+  /* Priority */
+  --crit: #9A1F1F;
+  --hi: #B87510;
+  --med: #2E5339;
+  --low: #6D7175;
+
+  /* Fonts */
+  --font-body: 'Barlow', sans-serif;
+  --font-ed: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --r-4: 4px;
+  --r-8: 8px;
+  --r-pill: 9999px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur: 260ms;
+}

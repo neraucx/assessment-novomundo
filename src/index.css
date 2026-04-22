@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper-1);
+    color: var(--slate-1);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* ============ BADGES ============ */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--r-pill);
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+  }
+  .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .badge-mage {
+    color: var(--mage);
+    background: color-mix(in srgb, var(--mage) 12%, transparent);
+    border-color: color-mix(in srgb, var(--mage) 20%, transparent);
+  }
+  .badge-inc {
+    color: var(--inc);
+    background: color-mix(in srgb, var(--inc) 10%, transparent);
+    border-color: color-mix(in srgb, var(--inc) 20%, transparent);
+  }
+  .badge-both {
+    color: var(--both);
+    background: color-mix(in srgb, var(--both) 12%, transparent);
+    border-color: color-mix(in srgb, var(--both) 20%, transparent);
+  }
+  .badge-nerau {
+    color: #8a6a20;
+    background: color-mix(in srgb, var(--nerau) 18%, transparent);
+    border-color: color-mix(in srgb, var(--nerau) 30%, transparent);
+  }
+  .badge-client {
+    color: var(--client);
+    background: color-mix(in srgb, var(--client) 12%, transparent);
+    border-color: color-mix(in srgb, var(--client) 25%, transparent);
+  }
+
+  /* ============ PRIORITY TAGS ============ */
+  .prio-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .prio-tag.critical {
+    background: var(--crit);
+    color: #fff;
+  }
+  .prio-tag.high {
+    background: var(--hi);
+    color: #fff;
+  }
+  .prio-tag.medium {
+    background: color-mix(in srgb, var(--med) 15%, transparent);
+    color: var(--med);
+  }
+  .prio-tag.low {
+    background: var(--paper-2);
+    color: var(--slate-2);
+  }
+
+  /* ============ COMPLEX TAGS ============ */
+  .complex-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .complex-tag.baixa {
+    background: #e8f5e8;
+    color: #1a5f1a;
+  }
+  .complex-tag.media {
+    background: #fff4e0;
+    color: #8a5a1e;
+  }
+  .complex-tag.alta {
+    background: #fce4e4;
+    color: #9a1f1f;
+  }
+  .complex-tag.vazio {
+    color: var(--slate-3);
+    font-style: italic;
+  }
+
+  /* ============ STATUS TAGS ============ */
+  .status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .status-tag::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .status-tag.pending::before {
+    background: var(--slate-3);
+  }
+  .status-tag.in_progress::before {
+    background: #d4a548;
+    box-shadow: 0 0 0 3px rgba(212, 165, 72, 0.2);
+  }
+  .status-tag.done::before {
+    background: #2e5339;
+  }
+  .status-tag.blocked::before {
+    background: var(--red-500);
+    box-shadow: 0 0 0 3px rgba(234, 0, 0, 0.2);
+  }
+
+  /* ============ SPRINT TAGS ============ */
+  .sprint-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: var(--r-4);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .sprint-tag.s1 {
+    background: color-mix(in srgb, var(--mage) 15%, transparent);
+    color: var(--mage);
+  }
+  .sprint-tag.s2 {
+    background: color-mix(in srgb, var(--both) 15%, transparent);
+    color: var(--both);
+  }
+  .sprint-tag.none {
+    background: var(--paper-2);
+    color: var(--slate-2);
+  }
+  .sprint-tag.dec {
+    background: color-mix(in srgb, var(--nerau) 25%, transparent);
+    color: #8a6a20;
+  }
+
+  /* ============ INLINE SELECT ============ */
+  .inline-select {
+    padding: 4px 26px 4px 10px;
+    border: 1px solid transparent;
+    border-radius: var(--r-4);
+    font-size: 11px;
+    background: transparent
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%236D7175' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>")
+      no-repeat right 8px center;
+    appearance: none;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--ink-1);
+    transition: all var(--dur) var(--ease);
+  }
+  .inline-select:hover {
+    background-color: var(--paper-2);
+    border-color: var(--paper-3);
+  }
+  .inline-select:focus {
+    outline: none;
+    border-color: var(--red-500);
+    background-color: #fff;
+  }
+
+  /* ============ PANEL ============ */
+  .panel {
+    background: var(--paper-0);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--r-8);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .panel-header {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--paper-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--paper-1);
+  }
+  .panel-header h3 {
+    font-family: var(--font-ed);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .panel-header h3::before {
+    content: '';
+    width: 4px;
+    height: 16px;
+    background: var(--red-500);
+  }
+  .panel-header .meta {
+    font-size: 11px;
+    color: var(--slate-2);
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ SECTION BAND ============ */
+  .section-band {
+    padding: 10px 18px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-band.v1 {
+    background: #f1f7f2;
+    color: #1a5f1a;
+    border-bottom: 1px solid #d8e8dc;
+  }
+  .section-band.decision {
+    background: #eef3fb;
+    color: #1e3a8a;
+    border-bottom: 1px solid #d5e1f3;
+  }
+  .section-band.ongoing {
+    background: #fef7e6;
+    color: #92400e;
+    border-bottom: 1px solid #f5e3bf;
+  }
+
+  /* ============ OBS BUTTON ============ */
+  .obs-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--r-pill);
+    background: var(--paper-2);
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--slate-2);
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .obs-btn:hover {
+    background: #fff;
+    border-color: var(--red-500);
+    color: var(--red-500);
+  }
+  .obs-btn.has-content {
+    background: color-mix(in srgb, var(--red-500) 10%, transparent);
+    color: var(--red-500);
+    border-color: color-mix(in srgb, var(--red-500) 25%, transparent);
+  }
+}
