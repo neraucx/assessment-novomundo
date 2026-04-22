@@ -238,7 +238,7 @@ export const WEEKS: WeekBlock[] = [
     week: 9,
     phasesActive: ['QA', 'Go-live + War Room'],
     tasks: [
-      { title: 'DNS switch + propagação', area: 'Go-live', responsible: 'mageshop' },
+      { title: 'DNS switch + propagação', area: 'Go-live', responsible: 'nerau', observation: 'CNAME pro PWA Increazy (pwa.increazy.com). Nerau coordena a janela de cutover com cliente e Mageshop.' },
       { title: 'Monitoramento intensivo primeiras 120h', area: 'Go-live', responsible: 'both', observation: 'War room ativo com Nerau + Mageshop + Increazy + cliente.' },
       { title: 'Correções pós-live prioritárias', area: 'Go-live', responsible: 'both' },
       { title: 'Relatório final + handover', area: 'Go-live', responsible: 'nerau' },
