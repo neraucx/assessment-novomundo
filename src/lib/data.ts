@@ -215,7 +215,7 @@ export const WEEKS: WeekBlock[] = [
       { title: 'Testes E2E automatizados', area: 'QA', responsible: 'both' },
       { title: 'Cross-browser + cross-device', area: 'QA', responsible: 'both' },
       { title: 'Acessibilidade (WCAG 2.1 AA)', area: 'QA', responsible: 'nerau' },
-      { title: 'Testes de carga', area: 'QA', responsible: 'mageshop', observation: 'BF/Natal ≥88 pedidos/min.' },
+      { title: 'Testes de carga', area: 'QA', responsible: 'nerau', observation: 'Executados via PWA Increazy (ponto de entrada dos usuários). Meta BF/Natal: ≥88 pedidos/min.' },
     ],
     milestonesAtEnd: [],
   },
