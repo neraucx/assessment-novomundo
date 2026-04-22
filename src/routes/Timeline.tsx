@@ -12,15 +12,15 @@ export default function Timeline() {
   const [detailedOpen, setDetailedOpen] = useState(false)
 
   return (
-    <div className="px-8 py-7">
-      <header className="mb-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-5 lg:py-7">
+      <header className="mb-6 lg:mb-8">
         <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500 mb-2 font-medium">
           Cronograma
         </div>
-        <h1 className="font-display text-[32px] font-bold tracking-[-0.02em] text-ink-1 leading-[1.1]">
+        <h1 className="font-display text-[26px] sm:text-[32px] font-bold tracking-[-0.02em] text-ink-1 leading-[1.1]">
           Timeline <span className="text-red-500 italic font-medium">do projeto</span>
         </h1>
-        <p className="text-[14px] text-slate-2 mt-2 max-w-[720px] leading-relaxed">
+        <p className="text-[13px] sm:text-[14px] text-slate-2 mt-2 max-w-[720px] leading-relaxed">
           As {TOTAL_WEEKS} semanas do projeto, com as fases de trabalho e os
           marcos onde a equipe da Novo Mundo participa com aprovação.
         </p>
@@ -28,8 +28,8 @@ export default function Timeline() {
 
       <DeliveryConditionNotice />
 
-      <section className="mb-8">
-        <h2 className="font-display text-[20px] font-semibold text-ink-1 mb-4">
+      <section className="mb-6 lg:mb-8">
+        <h2 className="font-display text-[18px] sm:text-[20px] font-semibold text-ink-1 mb-3 lg:mb-4">
           Marcos onde vocês participam
         </h2>
         <MilestonesTimeline milestones={MILESTONES} />
@@ -38,26 +38,30 @@ export default function Timeline() {
       <section className="panel">
         <div className="panel-header">
           <h3>Fases</h3>
-          <span className="meta">W1 → W{TOTAL_WEEKS} · {TOTAL_WEEKS * 7} dias</span>
+          <span className="meta hidden sm:inline">
+            W1 → W{TOTAL_WEEKS} · {TOTAL_WEEKS * 7} dias
+          </span>
         </div>
-        <div className="p-5">
-          <WeekAxis />
-          <div className="mt-3 space-y-2">
-            {PHASES.map((phase) => (
-              <PhaseRow key={phase.name} phase={phase} />
-            ))}
+        <div className="p-3 sm:p-5 overflow-x-auto">
+          <div className="min-w-[720px]">
+            <WeekAxis />
+            <div className="mt-3 space-y-2">
+              {PHASES.map((phase) => (
+                <PhaseRow key={phase.name} phase={phase} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-8">
+      <section className="mt-6 lg:mt-8">
         <button
           type="button"
           onClick={() => setDetailedOpen((v: boolean) => !v)}
-          className="w-full flex items-center justify-between gap-3 p-4 bg-paper-0 border border-paper-3 rounded-8 hover:border-red-500 transition-colors group"
+          className="w-full flex items-center justify-between gap-3 p-4 bg-paper-0 border border-paper-3 rounded-8 hover:border-red-500 transition-colors group text-left"
         >
-          <div className="text-left">
-            <h2 className="font-display text-[18px] font-semibold text-ink-1 group-hover:text-red-500">
+          <div>
+            <h2 className="font-display text-[16px] sm:text-[18px] font-semibold text-ink-1 group-hover:text-red-500">
               Plano detalhado · semana a semana
             </h2>
             <p className="text-[12px] text-slate-2 mt-0.5">
@@ -85,7 +89,7 @@ function WeekAxis() {
   return (
     <div
       className="grid gap-0.5"
-      style={{ gridTemplateColumns: `260px repeat(${TOTAL_WEEKS}, 1fr)` }}
+      style={{ gridTemplateColumns: `200px repeat(${TOTAL_WEEKS}, 1fr)` }}
     >
       <div />
       {Array.from({ length: TOTAL_WEEKS }, (_, i) => i + 1).map((w) => (
@@ -108,7 +112,7 @@ function PhaseRow({ phase }: { phase: (typeof PHASES)[number] }) {
   return (
     <div
       className="grid gap-0.5 items-center py-1.5"
-      style={{ gridTemplateColumns: `260px repeat(${TOTAL_WEEKS}, 1fr)` }}
+      style={{ gridTemplateColumns: `200px repeat(${TOTAL_WEEKS}, 1fr)` }}
     >
       <div className="text-[12px] font-medium text-ink-1 pr-3 leading-tight">
         {phase.name}
