@@ -6,18 +6,27 @@ const USER = 'novomundo'
 const PASS = 'dk2!%0s0#Sh1239'
 const STORAGE_KEY = 'nm_client_session'
 
+function safeStorage(): Storage | null {
+  try {
+    if (typeof window === 'undefined') return null
+    return window.sessionStorage
+  } catch {
+    return null
+  }
+}
+
 export function login(username: string, password: string): boolean {
   if (username.trim() === USER && password === PASS) {
-    sessionStorage.setItem(STORAGE_KEY, 'ok')
+    safeStorage()?.setItem(STORAGE_KEY, 'ok')
     return true
   }
   return false
 }
 
 export function logout() {
-  sessionStorage.removeItem(STORAGE_KEY)
+  safeStorage()?.removeItem(STORAGE_KEY)
 }
 
 export function isAuthenticated(): boolean {
-  return sessionStorage.getItem(STORAGE_KEY) === 'ok'
+  return safeStorage()?.getItem(STORAGE_KEY) === 'ok'
 }
